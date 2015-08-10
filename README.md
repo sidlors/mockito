@@ -1,29 +1,3 @@
-##mockito
-
-[Mockito]()
-
-[Introducción]()
-
-[Verificar el comportamiento]()
-
-[Stubbing]()
-
-[Argument matchers]()
-
-[Verficiando el numero exacto de invocaciones, al menos X, o ninguna invocación]()
-
-[Stubbing metodos void methods con excepciones]()
-
-[Verificaciones en orden]()
-
-[Asegurandonos que alguna(s) interaccion(es) nunca ocurren en un mock]()
-
-[Buscando llamadas redundantes]()
-
-[@Mock]()
-
-[Conclusiones]()
-
 ###Introducción
 
 Muchos de vosotros conoceréis TDD (Test Drive development), desarrollo conducido por pruebas, donde la fuerza de nuestros programas se basa justo en eso, en los test de las clases que vamos generando (De hecho TDD propone generar los test antes de crear el cï¿½digo de la clase).
