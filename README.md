@@ -17,16 +17,16 @@ Mockito está basado en EasyMock, y el funcionamiento es prácticamente parecido, 
 haciéndolo más entendible para nosotros (no existe el concepto de expected, para aquellos que sepan algo de EasyMock), 
 y además permite crear mocks de clases concretas (y no sólo de interfaces).
 
-La idea de las pruebas al usar mockito es el concepto de stubbing -> “ ejecutar “ -> verificar (programar un 
+La idea de las pruebas al usar mockito es el concepto de *stubbing -> “ejecutar“ -> verificar* (programar un 
 comportamiento, ejecutar las llamadas y verificar las llamadas), donde centraremos nuestros esfuerzos, no en los 
-resultados obtenidos por los mÃ©todos a probar (o al menos no solo en ello), si no en las interacciones de las clases 
+resultados obtenidos por los métodos a probar (o al menos no solo en ello), si no en las interacciones de las clases 
 a probar y las clases de apoyo, de las cuales generamos mocks.
 
 Vamos a ver el funcionamiento de mockito con diferentes ejemplos para asi apreciar la funcionalidad y potencial de este
 tipo de herramientas.
 
 Los siguientes ejemplos van a realizar mocks sobre listas (List), simplemente porque la interfaz List es muy conocida y 
-asi se facilita la comprensiÃ³n de dichos fragmentos de código. Quizás los ejemplos parezcan demasiado simples o 
+asi se facilita la comprensión de dichos fragmentos de código. Quizás los ejemplos parezcan demasiado simples o 
 incluso poco lógicos, pero sólo los usaremos para comprender e ir conociendo el api de mockito de una manera sencilla.
 
 
@@ -240,8 +240,7 @@ detecci&aoacute;n de errores y asegurÃ¡ndonos el buen funcionamiento durante el 
 
 Algunos, tras ver los snippets de código anteriores pensaran
  
-**¿y para qué me sirve mockito?, ¿por qué perder el tiempo usando mock objects cuando puedo realizar las pruebas
-apoyandome en otras clases que ya han sido probadas, y funcionan bien?**. 
+*¿y para qué me sirve mockito?*, *¿por qué perder el tiempo usando mock objects cuando puedo realizar las pruebas apoyandome en otras clases que ya han sido probadas, y funcionan bien?*. 
 
 Es un error. Lo primero, NUNCA se pierde tiempo en generar test ni en usar mock objects, puesto que ese código nos 
 automatizará las tareas de pruebas nos sÃ³lo durante el desarrollo, si no tambien durante las fases de mantenimiento de
