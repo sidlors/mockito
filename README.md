@@ -1,33 +1,33 @@
-###IntroducciÛn
+###Introducci√≥n
 
 Mochos conocemos TDD (Test Drive development), desarrollo conducido por pruebas, donde la fuerza de 
 nuestros programas se basa justo en eso, en los test de las clases que vamos generando (De hecho TDD propone generar 
-los test antes de crear el cÛdigo de la clase).
+los test antes de crear el c√≥digo de la clase).
 
 Para poder crear un buen conjunto de pruebas unitarias, es necasario que nos centremos exclusivamente en la clase a 
 testear, simulando el funcionamiento de las capas inferiores (pensad por ejemplo en olvidarnos de la capa de acceso a 
-datos, DAO). De esta manera estaremos creando test unitarios potentes que os permitir· detectar y solucionar los 
-errores que teng√°is o que se cometan durante el futuro del desarrollo de vuestra aplicaciÛn.
+datos, DAO). De esta manera estaremos creando test unitarios potentes que os permitir√° detectar y solucionar los 
+errores que teng√É¬°is o que se cometan durante el futuro del desarrollo de vuestra aplicaci√≥n.
 
-Para esta tarea nos apoyaremos en el uso de mock objects, que no son m·s que objetos que simulan parte del 
-comportamiento de una clase, y m·s especificamente vamos a ver una herramienta que permite generar mock objects 
-din·micos, mockito.
+Para esta tarea nos apoyaremos en el uso de mock objects, que no son m√°s que objetos que simulan parte del 
+comportamiento de una clase, y m√°s especificamente vamos a ver una herramienta que permite generar mock objects 
+din√°micos, mockito.
 
-Mockito est· basado en EasyMock, y el funcionamiento es pr·cticamente parecido, aunque mejora el api a nivel sint·ctico,
-haciÈndolo m·s entendible para nosotros (no existe el concepto de expected, para aquellos que sepan algo de EasyMock), 
-y adem·s permite crear mocks de clases concretas (y no sÛlo de interfaces).
+Mockito est√° basado en EasyMock, y el funcionamiento es pr√°cticamente parecido, aunque mejora el api a nivel sint√°ctico,
+haci√©ndolo m√°s entendible para nosotros (no existe el concepto de expected, para aquellos que sepan algo de EasyMock), 
+y adem√°s permite crear mocks de clases concretas (y no s√≥lo de interfaces).
 
-La idea de las pruebas al usar mockito es el concepto de *stubbing -> ìejecutarì -> verificar* (programar un 
+La idea de las pruebas al usar mockito es el concepto de *stubbing -> ‚Äúejecutar‚Äú -> verificar* (programar un 
 comportamiento, ejecutar las llamadas y verificar las llamadas), donde centraremos nuestros esfuerzos, no en los 
-resultados obtenidos por los mÈtodos a probar (o al menos no solo en ello), si no en las interacciones de las clases 
+resultados obtenidos por los m√©todos a probar (o al menos no solo en ello), si no en las interacciones de las clases 
 a probar y las clases de apoyo, de las cuales generamos mocks.
 
 Vamos a ver el funcionamiento de mockito con diferentes ejemplos para asi apreciar la funcionalidad y potencial de este
 tipo de herramientas.
 
 Los siguientes ejemplos van a realizar mocks sobre listas (List), simplemente porque la interfaz List es muy conocida y 
-asi se facilita la comprensiÛn de dichos fragmentos de cÛdigo. Quiz·s los ejemplos parezcan demasiado simples o 
-incluso poco lÛgicos, pero sÛlo los usaremos para comprender e ir conociendo el api de mockito de una manera sencilla.
+asi se facilita la comprensi√≥n de dichos fragmentos de c√≥digo. Quiz√°s los ejemplos parezcan demasiado simples o 
+incluso poco l√≥gicos, pero s√≥lo los usaremos para comprender e ir conociendo el api de mockito de una manera sencilla.
 
 
 ###Verificar el comportamiento
@@ -47,12 +47,12 @@ mockedList.clear();
 //verificacion
 verify(mockedList).add("one");
 verify(mockedList).clear();
-Una vez creado, el mock recuerda todas las interacciones. Se puede elegir indiferentemente que interacci√≥n verificar
+Una vez creado, el mock recuerda todas las interacciones. Se puede elegir indiferentemente que interacci√É¬≥n verificar
 ```
 
 ###Stubbing
 
-Tambi√©n podemos programar el comportamiento de los mocks, indicando qu√© deben devolver ciertos m√©todos.
+Tambi√É¬©n podemos programar el comportamiento de los mocks, indicando qu√É¬© deben devolver ciertos m√É¬©todos.
 
 
 ```java
@@ -75,13 +75,13 @@ System.out.println(mockedList.get(999));
 verify(mockedList).get(0);
 ```
 
-Por defecto todos los mÈtodos que devuelven valores de un mock devuelven null, una colecciÛn vacÌa o el tipo de dato 
+Por defecto todos los m√©todos que devuelven valores de un mock devuelven null, una colecci√≥n vac√≠a o el tipo de dato 
 primitivo apropiado.
 
 Argument matchers
 
-Los arguments matchers permiten realizar llamadas a m√©todos mediante **comodines**, de forma que los p·rametros a los
-mismos no se tengan que definir explÌcitamente:
+Los arguments matchers permiten realizar llamadas a m√É¬©todos mediante **comodines**, de forma que los p√°rametros a los
+mismos no se tengan que definir expl√≠citamente:
 
 
 ```java
@@ -98,12 +98,12 @@ System.out.println(mockedList.get(999));
 verify(mockedList).get(anyInt());
 ```
 
-Argument matchers permiten realizar stubbing o verificaciones muy flexibles. puedes ver m·s [aqui] 
+Argument matchers permiten realizar stubbing o verificaciones muy flexibles. puedes ver m√°s [aqui] 
 (http://mockito.googlecode.com/svn/branches/1.7/javadoc/org/mockito/Matchers.html)
 
-Verficiando el numero exacto de invocaciones, al menos X, o ninguna invocaciÛn
+Verficiando el numero exacto de invocaciones, al menos X, o ninguna invocaci√≥n
 
-Vamos a ver ahora cÛmo verificar si se ha un cumplido un n˙mero mÌnimo o m·ximo de llamadas al mock:
+Vamos a ver ahora c√≥mo verificar si se ha un cumplido un n√∫mero m√≠nimo o m√°ximo de llamadas al mock:
 
 
 ```java
@@ -137,8 +137,8 @@ verify(mockedList, atMost(5)).add("three times");
 
 ###Stubbing metodos void methods con excepciones
 
-Veamos ahora cÛmo realizar stubbing de mÈtodos que no devuelven nada (por ejemplo para indicar que deben lanzar una 
-excepciÛn):
+Veamos ahora c√≥mo realizar stubbing de m√©todos que no devuelven nada (por ejemplo para indicar que deben lanzar una 
+excepci√≥n):
 
 
 ```java
@@ -151,7 +151,7 @@ mockedList.clear();
 ###Verificaciones en orden
 
 
-Si necesitamos que varios mock necesiten llevar un orden especÌfico en las llamadas lo podemos realizar de la siguiente
+Si necesitamos que varios mock necesiten llevar un orden espec√≠fico en las llamadas lo podemos realizar de la siguiente
 manera:
 
 ```java
@@ -170,7 +170,7 @@ inOrder.verify(firstMock).add("was called first");
 inOrder.verify(secondMock).add("was called second");
 ```
 
-Realizar verificaciones en orden son muy flexibles. no es necesario verificar todas las interacciones, si no sÛlo 
+Realizar verificaciones en orden son muy flexibles. no es necesario verificar todas las interacciones, si no s√≥lo 
 aquellas que necesitamos.
 
 Asegurandonos que alguna(s) interaccion(es) nunca ocurren en un mock
@@ -203,13 +203,13 @@ verify(mockedList).add("one");
 //la siguiente verificacion fallara
 verifyNoMoreInteractions(mockedList);
 ```
-Ojo! : verifyNoMoreInteractions() debe ser llamada solo cuando necesario. Realizar llamadas a este mÈtodo asiduamente 
-(sobre todo en todas las pruebas) generar·n test muy poco mantenibles y ampliables. Es mejor usar never() para aquellos
-mÈtodos que no deban ser interaccionados.
+Ojo! : verifyNoMoreInteractions() debe ser llamada solo cuando necesario. Realizar llamadas a este m√©todo asiduamente 
+(sobre todo en todas las pruebas) generar√°n test muy poco mantenibles y ampliables. Es mejor usar never() para aquellos
+m√©todos que no deban ser interaccionados.
 
 ###@Mock
 
-Nos permite realizar mocks anotando el c√≥digo, y as√≠ el mismo queda m√°s claro y limpio.
+Nos permite realizar mocks anotando el c√É¬≥digo, y as√É¬≠ el mismo queda m√É¬°s claro y limpio.
 
 ```java
 public class ArticleManagerTest { 
@@ -235,16 +235,20 @@ O se pueden usar como runners MockitoJUnitRunner, MockitoJUnit44Runner. (veremos
 ###Conclusiones
 
 Como hemos podido ver en este tutorial, el uso de mock objects nos facilita mucho crear test unitarios que no dependen
-de las capas inferiores, y por tanto prueben las clases de cierta capamucho m·s exhaustivamente, permitiendo la 
-detecci&aoacute;n de errores y asegur√°ndonos el buen funcionamiento durante el futuro.
+de las capas inferiores, y por tanto prueben las clases de cierta capamucho m√°s exhaustivamente, permitiendo la 
+detecci&aoacute;n de errores y asegur√É¬°ndonos el buen funcionamiento durante el futuro.
 
-Algunos, tras ver los snippets de cÛdigo anteriores pensaran
+Algunos, tras ver los snippets de c√≥digo anteriores pensaran
  
-*øy para quÈ me sirve mockito?*, *øpor quÈ perder el tiempo usando mock objects cuando puedo realizar las pruebas apoyandome en otras clases que ya han sido probadas, y funcionan bien?*. 
+*¬øy para qu√© me sirve mockito?*, *¬øpor qu√© perder el tiempo usando mock objects cuando puedo realizar las pruebas apoyandome en otras clases que ya han sido probadas, y funcionan bien?*. 
 
-Es un error. Lo primero, NUNCA se pierde tiempo en generar test ni en usar mock objects, puesto que ese cÛdigo nos 
-automatizar· las tareas de pruebas nos s√≥lo durante el desarrollo, si no tambien durante las fases de mantenimiento de
-la aplicaciÛn; y pensar que el cÛdigo que hoy no falla no puede fallar maÒana es err&aoacute;neo tambiÈn.. y si el fallo
+Es un error. Lo primero, NUNCA se pierde tiempo en generar test ni en usar mock objects, puesto que ese c√≥digo nos 
+automatizar√° las tareas de pruebas nos s√≥lo durante el desarrollo, si no tambien durante las fases de mantenimiento de
+la aplicaci√≥n; y pensar que el c√≥digo que hoy no falla no puede fallar ma√±ana es err&aoacute;neo tambi√©n.. y si el fallo
 esta en las clases en las que nos apoyamos.. nuestros tests fallaran cuando nuestras clases (puede que) funcionen bien.
+
+
+continua leyendo en [http://sidlors.github.io/mockito/](http://sidlors.github.io/mockito/)
+
 
 
