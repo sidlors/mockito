@@ -13,6 +13,7 @@ import static org.mockito.Mockito.when;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,6 +21,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class MockTest {
+
+	private static final Logger logger = Logger.getLogger(MockTest.class);
 
 	@Mock
 	List<String> mockedList;
@@ -61,7 +64,7 @@ public class MockTest {
 		when(mockedList.get(1)).thenThrow(new RuntimeException());
 
 		// imprime "first"
-		System.out.println(mockedList.get(0));
+		logger.info(mockedList.get(0));
 
 		verify(mockedList).get(0);
 
@@ -69,10 +72,10 @@ public class MockTest {
 		// Por defecto todos los métodos que devuelven valores de un mock
 		// devuelven null, una colección vacía o el tipo de dato primitivo
 		// apropiado.
-		System.out.println(mockedList.get(999));
+		logger.info(mockedList.get(999));
 
 		// lanza runtime exception
-		System.out.println(mockedList.get(1));
+		logger.info(mockedList.get(1));
 
 	}
 
@@ -83,7 +86,7 @@ public class MockTest {
 		// when(mockedList2.get(anyInt())).thenReturn("element");
 		// tambien se puede verificar usando argument matchers
 		when(mockedList.get(1)).thenReturn("element");
-		System.out.println(mockedList.get(1));
+		logger.info(mockedList.get(1));
 		verify(mockedList).get(anyInt());
 	}
 
