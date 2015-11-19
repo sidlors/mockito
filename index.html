@@ -1,35 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
     <title>Mockito by sidlors</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Mockito</h1>
+        <p class="header">Proyecto de pruebas en base a Mockito</p>
 
-    <header>
-      <div class="container">
-        <h1>Mockito</h1>
-        <h2>Proyecto de pruebas en base a Mockito</h2>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/sidlors/mockito/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/sidlors/mockito/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/sidlors/mockito">View On GitHub</a></li>
+        </ul>
 
-        <section id="downloads">
-          <a href="https://github.com/sidlors/mockito/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/sidlors/mockito/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/sidlors/mockito" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/sidlors">sidlors</a></p>
 
-    <div class="container">
-      <section id="main_content">
+
+      </header>
+      <section>
         <h3>
 <a id="welcome-to-mockito" class="anchor" href="#welcome-to-mockito" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Mockito</h3>
+
+<p>Todo el código que escribimos tiene una red de interdependencias, en una clase se puede llamar a los métodos de otras que a su vez pueden llamar aún otros métodos; de hecho esta es la intención y el poder de la programación orientada a objetos. Por lo general, al tiempo que escribimos nuestro código de funcionalidad también vamos a escribir código de pruebas unitarias automatizadas. Utilizamos estas pruebas de unidad para verificar el comportamiento de nuestro código, para asegurarse de que se comporta como esperamos que se comporte. Cuando la unidad a prueba nuestro código queremos probarlo en aislamiento y queremos probarlo rápido. A los efectos de la prueba de unidad sólo nos preocupamos por la verificación de nuestro propio código, en la clase actual bajo prueba. Generalmente también queremos ejecutar nuestras pruebas unitarias muy regularmente, quizás más que varias veces por hora cuando se reestructuran y estamos trabajando en nuestro entorno de integración continua.</p>
+
+<p>Aqui es cuando todas nuestras interdependencias convierten en un problema. Podríamos llegar a ejecutar código en otra clase que tiene un error que hace que nuestra unidad de prueba falle. Imagina una clase que utilizamos para leer datos de usuario de una base de datos, que sucede si no hay base de datos presente cuando queremos ejecutar nuestras pruebas unitarias? Imagina una clase que requiere varios servicios web remotos, lo que si están abajo o tardan mucho tiempo para responder? Nuestras pruebas unitarias pueden fallar debido a nuestras dependencias y no debido a algún problema con el comportamiento de nuestro código. Esto no es deseable.</p>
+
+<p>Además de esto, puede ser que sea muy difícil  obligar a un evento específico o una condición de error que queremos asegurar nuestro código maneja correctamente. ¿Qué pasa si queremos probar que alguna clase que deserializar un objeto maneja una posible StreamException Objeto correctamente? ¿Qué pasa si queremos probar todos los valores de retorno de contorno de un colaborador? Lo que trata de asegurar que un cierto valor calculado se pasa correctamente a un colaborador? Puede ser que tome un montón de codificación y mucho tiempo para replicar las condiciones para nuestras pruebas, si es no que seria impoposible.</p>
+
+<p>Todos estos problemas simplemente desaparecen si utilizamos <em>mocks</em>. Un <code>burla</code>  actua como un sustituto de las clases con las que estamos colaborando, toman su lugar y se comportan exactamente como les decimos a comportarse. Mocks vamos a pretender que nuestros colaboradores reales están ahí, a pesar de que no lo son. Más importante <em>mocks</em> se pueden programar para volver cualesquiera valores que queremos y confirmar lo valores se pasan a ellos. Mocks ejecutar inmediatamente y no requieren recursos externos. Mocks devolverá lo que les decimos a regresar, lanzar excepciones lo que queremos que tire y haremos estas cosas una y otra vez, bajo demanda. Nos dejaron probar sólo el comportamiento de nuestro propio código, para asegurarse de que nuestra clase trabaja, independientemente del comportamiento de sus colaboradores.</p>
+
+<p>Hay varios Frameworks de mocks disponibles para Java, cada uno tiene su propia sintaxis, sus puntos fuertes, sus propias debilidades. En este tutorial vamos a utilizar el Framework Mockito, que es uno de los marcos de <em>mocks</em> más populares disponibles.</p>
 
 <p>Mockito encourages standard best practices in unit testing and design in general, namely:</p>
 
@@ -63,8 +75,11 @@
 
 <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
       </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
     </div>
-
-    
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
