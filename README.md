@@ -1,3 +1,5 @@
+![](https://magnum-ci.com/status/0abf38764648d00c59d1dee6f4e0dac8.png)
+
 ###Introducción
 
 Mochos conocemos TDD (Test Drive development), desarrollo conducido por pruebas, donde la fuerza de 
